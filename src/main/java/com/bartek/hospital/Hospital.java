@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import com.bartek.doctor.Doctor;
 import com.bartek.hospitaldoctor.HospitalDoctor;
@@ -18,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Hospital {
 
 	@JsonBackReference
-	@OneToMany(mappedBy="hospital", fetch = FetchType.LAZY, orphanRemoval = true)
+	@OneToMany(mappedBy="hospital", fetch = FetchType.LAZY)
 	private List<HospitalDoctor> doctors;
 	@Id
 	@Column(name = "Id")

@@ -19,7 +19,7 @@ public class DoctorService {
 	
 	
 	public Doctor getDoctor(int id) {
-		return doctorDao.findOne(id);
+			return doctorDao.findOne(id);
 	}
 	
 	
@@ -30,6 +30,12 @@ public class DoctorService {
 	public void updateDoctor(Doctor doctor, int id) {
 		doctorDao.save(doctor);
 	}
+	
+	public void updateDoctorBuffer(Doctor doctor, int id) {
+		doctor.setLicenseNumber(0);
+		doctorDao.save(doctor);
+	}
+	
 	
 	public void deleteDoctor(int id) {
 		doctorDao.delete(id);

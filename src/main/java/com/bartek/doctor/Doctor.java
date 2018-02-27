@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Doctor {
 
 	@JsonBackReference
-	@OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY, orphanRemoval = true)
+	@OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY)
 	private List<HospitalDoctor> hospitals;
 
 	@Id

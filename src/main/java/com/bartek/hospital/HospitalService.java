@@ -28,6 +28,12 @@ public class HospitalService {
 	public void updateHospital(int id, Hospital hospital) {
 		hospitalDao.save(hospital);
 	}
+	
+	public void updateHospitalBuffer(int id, Hospital hospital) {
+		String buffer = "XXXXXXX";
+		hospital.setName(buffer);
+		hospitalDao.save(hospital);
+	}
 
 	public void deleteHospital(int id) {
 		hospitalDao.delete(id);

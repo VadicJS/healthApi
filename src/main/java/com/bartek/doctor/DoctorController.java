@@ -39,8 +39,13 @@ public class DoctorController {
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/api/doctors/{id}")
 	public void updateDoctor(@RequestBody Doctor doctor, @PathVariable int id){
+		int buffer = doctor.getLicenseNumber();
+		doctorService.updateDoctorBuffer(doctor, id);
+		doctor.setLicenseNumber(buffer);
 		doctorService.updateDoctor(doctor, id);
 	}
+	
+	
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/api/doctors/{id}")
 	public void deleteDoctor(@PathVariable int id) {

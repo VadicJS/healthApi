@@ -30,7 +30,7 @@ public class HospitalDoctorController {
 		return hospitalDoctorService.getAll();
 	}
 
-	@GetMapping(value = "/api/hospitals/{hospitalId}/doctors")
+	@GetMapping(value = "/api/hospitaldoctors/{hospitalId}")
 	public List<HospitalDoctor> getDoctors(@PathVariable int hospitalId) {
 		return hospitalDoctorService.getAllDoctorsForHospital(hospitalId);
 	}

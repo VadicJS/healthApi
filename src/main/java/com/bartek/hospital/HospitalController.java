@@ -2,6 +2,7 @@ package com.bartek.hospital;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +40,12 @@ public class HospitalController {
 		hospitalService.addHospital(hospital);
 	}
 
+	
 	@RequestMapping(method = RequestMethod.PUT, value = "/api/hospitals/{id}")
 	public void updateHospital(@RequestBody Hospital hospital, @PathVariable int id) {
+		String buffer = hospital.getName();
+		hospitalService.updateHospitalBuffer(id, hospital);
+		hospital.setName(buffer);
 		hospitalService.updateHospital(id, hospital);
 	}
 
